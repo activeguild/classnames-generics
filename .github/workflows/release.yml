@@ -1,0 +1,58 @@
+name: automatic release
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '!*'
+jobs:
+  release:
+    name: check version and tagging
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 13.x
+          registry-url: 'https://registry.npmjs.org'
+      - name: install can-npm-publish and dependencies
+        run: |
+          npm install can-npm-publish
+          npm ci
+      - name: check version and add tag
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          REPO: ${{github.repository}}
+          COMMIT: ${{github.sha}}
+        run: ./release.sh
+      - name: tag error
+        if: failure()
+        uses: abinoda/slack-action@v1.0.7
+        with:
+          # "channel"にSlackチャンネルIDを代入
+          args: '{\"channel\":\"D011EUVEJH4\", \"text\":\"tag打ちに失敗😱\"}'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: build
+        run: npm run build
+      - name: release
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: publish error
+        if: failure()
+        uses: abinoda/slack-action@v1.0.7
+        with:
+          # "channel"にSlackチャンネルIDを代入
+          args: '{\"channel\":\"D011EUVEJH4\", \"text\":\"npmにpublish失敗😱\"}'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Send notification to Slack when master/docs has been updated
+        uses: abinoda/slack-action@v1.0.7
+        with:
+          # "channel"にSlackチャンネルIDを代入
+          args: '{\"channel\":\"D011EUVEJH4\", \"text\":\"npmに最新版をリリース😄\"}'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
