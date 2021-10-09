@@ -11,6 +11,24 @@ npm i -D classnames-generics
 
 ## Usage
 
-```js
+```ts
+
+import {classNames } from 'classnames-generics';
+
+classNames<'foo' | 'bar'>('foo', 'bar');
+classNames<'foo' | 'bar'>('foo', { bar: true });
+classNames<'foo-bar'>({ 'foo-bar': true });
+classNames<'foo-bar'>({ 'foo-bar': false });
+classNames<'foo' | 'bar'>({ foo: true }, { bar: true });
+classNames<'foo' | 'bar'>({ foo: true, bar: true });
+classNames<'foo' | 'bar'| 'duck' | 'baz' | 'quux'>('foo', { bar: true, duck: false }, 'baz', { quux: true });
+classNames<'foo' | 'bar'>(null, false, 'bar', undefined, 0, 1, '');
+
+import {classNamesFunc } from 'classnames-generics';
+
+const classNames = classNames<'foo' | 'bar'>();
+
+classNames('foo', 'bar');
+classNames('foo', { bar: true });
 
 ```
