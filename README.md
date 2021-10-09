@@ -1,12 +1,14 @@
 <h1 align="center">Welcome 😀</h1>
 
+![example branch parameter](https://github.com/activeguild/classnames-generics/actions/workflows/main.yml/badge.svg?branch=master)
+
 # classnames-generics
 Use the classnames library more type-safely.
 
 ## Install
 
 ```shell
-npm i -D classnames-generics
+npm i classnames-generics
 ```
 
 ## Usage
