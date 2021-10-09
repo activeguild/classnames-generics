@@ -1,6 +1,8 @@
 <h1 align="center">Welcome 😀</h1>
 
-![example branch parameter](https://github.com/activeguild/classnames-generics/actions/workflows/main.yml/badge.svg?branch=master)
+<p align="left">
+  <a href="https://github.com/actions/setup-node"><img alt="GitHub Actions status" src="https://github.com/activeguild/classnames-generics/workflows/automatic%20release/badge.svg" style="max-width:100%;"></a>
+</p>
 
 # classnames-generics
 Use the classnames library more type-safely.
