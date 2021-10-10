@@ -1,4 +1,4 @@
-import { default as cn, Argument, Value } from "classnames";
+import { default as cn} from "classnames";
 
 type StringLiteral<T> = T extends `${string & T}` ? T : never;
 
