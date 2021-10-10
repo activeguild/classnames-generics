@@ -26,11 +26,10 @@ classNames<'foo-bar'>({ 'foo-bar': false });
 classNames<'foo' | 'bar'>({ foo: true }, { bar: true });
 classNames<'foo' | 'bar'>({ foo: true, bar: true });
 classNames<'foo' | 'bar'| 'duck' | 'baz' | 'quux'>('foo', { bar: true, duck: false }, 'baz', { quux: true });
-classNames<'foo' | 'bar'>(null, false, 'bar', undefined, 0, 1, '');
 
 import {classNamesFunc } from 'classnames-generics';
 
-const classNames = classNames<'foo' | 'bar'>();
+const classNames = classNamesFunc<'foo' | 'bar'>();
 
 classNames('foo', 'bar');
 classNames('foo', { bar: true });
