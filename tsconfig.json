@@ -3,9 +3,7 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
     "baseUrl": "src",
     "outDir": "./dist/",
-    "sourceMap": true,
     "declaration": true,
-    "declarationMap": true,
     "target": "es5",                                     /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     "module": "commonjs",                                /* Specify what module code is generated. */
     "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */
