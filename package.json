@@ -1,6 +1,6 @@
 {
   "name": "classnames-generics",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Use the classnames library more type-safely.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
