@@ -1,6 +1,6 @@
 {
   "name": "classnames-generics",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Use the classnames library more type-safely.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,8 +27,8 @@
   },
   "homepage": "https://github.com/activeguild/classnames-generics#readme",
   "devDependencies": {
-    "esbuild-register": "^3.3.3",
-    "typescript": "^4.8.4"
+    "esbuild-register": "^3.4.2",
+    "typescript": "^4.9.4"
   },
   "dependencies": {
     "classnames": "^2.3.2"
